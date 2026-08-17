@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇 · Snake</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="hud">
+        <div class="hud__item">分数 <span id="score">0</span></div>
+        <div class="hud__item hud__item--status" id="status">READY</div>
+        <div class="hud__item">速度 <span id="speed">1</span></div>
+      </header>
+
+      <div class="board-wrap">
+        <canvas id="board" width="600" height="600"></canvas>
+        <div class="overlay" id="overlay">
+          <p class="overlay__title" id="overlayTitle">准备开始</p>
+          <p class="overlay__hint" id="overlayHint">按任意方向键或点击下方方向键开始</p>
+          <button class="overlay__btn" id="restartBtn">重新开始</button>
+        </div>
+      </div>
+
+      <footer class="controls">
+        <div class="dpad">
+          <button class="dpad__key dpad__key--up" data-dir="UP" aria-label="上">▲</button>
+          <button class="dpad__key dpad__key--left" data-dir="LEFT" aria-label="左">◀</button>
+          <button class="dpad__key dpad__key--down" data-dir="DOWN" aria-label="下">▼</button>
+          <button class="dpad__key dpad__key--right" data-dir="RIGHT" aria-label="右">▶</button>
+        </div>
+        <div class="side-keys">
+          <button class="key" data-dir="UP" aria-label="上">W</button>
+          <button class="key" data-dir="LEFT" aria-label="左">A</button>
+          <button class="key" data-dir="DOWN" aria-label="下">S</button>
+          <button class="key" data-dir="RIGHT" aria-label="右">D</button>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
