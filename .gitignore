@@ -17,3 +17,6 @@ npm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# electron-builder 输出
+release/

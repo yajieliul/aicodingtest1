@@ -1,0 +1,45 @@
+# 贪吃蛇桌面版 —— electron-builder 打包配置
+# 用法示例：
+#   npm run build              # 先生成 Vite 产物到 dist/
+#   npm run dist:win           # Windows 安装包 (NSIS)
+#   npm run dist:mac           # macOS .dmg
+#   npm run dist:portable      # Windows 便携免安装版
+
+appId: com.example.snake
+productName: "贪吃蛇Snake"
+copyright: "MIT"
+
+directories:
+  output: release
+  buildResources: build
+
+# 只打包运行所需的静态产物与桌面壳，避免体积膨胀与源码泄露
+files:
+  - dist/**
+  - electron/**
+  - package.json
+
+# 若你放置了图标，放 build/icon.ico 与 build/icon.png(512x512) 即可被自动识别；
+# 不提供图标时 electron-builder 会回退到默认 Electroon 图标。
+# mac 需 build/icon.icns（或 icon.png），可在 generate-md 等工具生成。
+
+win:
+  target:
+    - nsis
+  # icon: build/icon.ico   # 可选，替换为你的图标
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  shortcutName: "贪吃蛇Snake"
+
+mac:
+  target:
+    - dmg
+  category: public.app-category.games
+  # icon: build/icon.icns # 可选
+
+# portable 免安装版（Windows 绿色版），可选产物
+portable:
+  artifactName: "${productName}-Portable-${version}.${ext}"
